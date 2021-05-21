@@ -12,11 +12,20 @@ module.exports = {
           light: "#232F3E",
           DEFAULT: "#131921",
         },
+        tsa:{
+          DEFAULT:"#F6FBFB"
+        }
       },
     },
-  },  
+    theme: {
+      boxShadow: {
+        sm: "0 10px 28px rgba(0, 0, 0, 0.2)",
+      },
+    },
+  },
   variants: {
     extend: {},
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };
+  
