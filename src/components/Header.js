@@ -4,14 +4,15 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
-import { signIn , useSession , signOut} from 'next-auth/client'
+import { signIn, useSession, signOut } from "next-auth/client";
 import { useRouter } from "next/router";
-import { useSelector } from 'react-redux'
-import { selectItems }from '../slices/basketSlice'
+import { useSelector } from "react-redux";
+import { selectItems, selectTotal } from "../slices/basketSlice";
+
 function Header() {
   const [session] = useSession();
-  const router = useRouter()
-  const items = useSelector(selectItems)
+  const router = useRouter();
+  const items = useSelector(selectItems);
   return (
     <header>
       {/* Top Nav */}
@@ -42,7 +43,10 @@ function Header() {
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
 
-          <div className="link">
+          <div
+            onClick={() => session && router.push("/orders")}
+            className="cursor-pointer link"
+          >
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">&Order</p>
           </div>
