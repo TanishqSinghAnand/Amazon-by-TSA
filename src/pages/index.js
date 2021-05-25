@@ -20,7 +20,6 @@ export default function Home({ products }) {
         {/* Feed */}
         <ProductFeed products={products} />
       </main>
-      {console.log(products)}
     </div>
   );
 }

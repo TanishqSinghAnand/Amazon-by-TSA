@@ -30,7 +30,6 @@ function CheckoutProduct({
         dispatch(addToBasket(product));
     }
     const removeItemFromBasket = () => {
-        console.log(id)
         dispatch(removeFromBasket({id}));
     }
 
@@ -49,7 +48,6 @@ function CheckoutProduct({
         </div>
         <p className="text-xs my-2 line-clamp-3 ">{description}</p>
         <Currency quantity={price} />
-        {console.log(hasPrime)}
         {hasPrime && (
           <div className="flex items-center space-x-2">
             <img

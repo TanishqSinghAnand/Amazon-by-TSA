@@ -1,5 +1,4 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-console.log(process.env.STRIPE_SECRET_KEY);
 export default async (req, res) => {
   const { items, email } = req.body;
 
@@ -15,7 +14,6 @@ export default async (req, res) => {
       },
     },
   }));
-  console.log(transformedItems);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     shipping_rates: ["shr_1ItxcESA4t1l7miAL5jbSghA"],
