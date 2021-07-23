@@ -1,9 +1,9 @@
 import Header from "../components/Header";
 import { CheckCircleIcon } from "@heroicons/react/solid";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 function Success() {
-    const router = useRouter()
+  const router = useRouter();
   return (
     <div className="bg-gray-100 h-screen">
       <Header />
@@ -17,11 +17,19 @@ function Success() {
             </h1>
           </div>
           <p>
-            We at Amazon truly appreciate your business, and we’re so
-            grateful for the trust you’ve placed in us. We sincerely hope you
-            are satisfied with your purchase.
+            We at Amazon truly appreciate your business, and we’re so grateful
+            for the trust you’ve placed in us. We sincerely hope you are
+            satisfied with your purchase.
           </p>
-          <button onClick={()=>{router.push('/orders')}} className = "button mt-8">Go to my orders</button>
+          <button
+            // onClick={() => {
+            //   router.push("/orders");
+            // }}
+            onClick={() => router.push("/orders")}
+            className="button mt-8"
+          >
+            Go to my orders
+          </button>
         </div>
       </main>
     </div>
