@@ -34,6 +34,7 @@ const fulfillOrder = async (session) => {
 };
 
 export default async (req, res) => {
+  console.log("Web hook trigred");
   if (req.method === "POST") {
     const requestBuffer = await buffer(req);
     const payload = requestBuffer.toString();
@@ -47,14 +48,17 @@ export default async (req, res) => {
       console.log("Err msg : ", err.message);
       return res.status(400).send(`WebHook error : ${err.message}`);
     }
+    console.log("Event : ",event.type);
+      if (event.type === "checkout.session.completed") {
+        const session = event.data.object;
 
-    if (event.type === "checkout.session.completed") {
-      const session = event.data.object;
+        return fulfillOrder(session)
+          .then(() => res.status(200))
+          .catch((err) => res.status(400).send(`WEBHOOK ERROR ${err.message}`));
+      }
+    
+  
 
-      return fulfillOrder(session)
-        .then(() => res.status(200))
-        .catch((err) => res.status(400).send(`WEBHOOK ERROR ${err.message}`));
-    }
   }
 };
 

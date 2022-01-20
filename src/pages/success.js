@@ -17,9 +17,7 @@ function Success() {
             </h1>
           </div>
           <p>
-            We at Amazon truly appreciate your business, and we’re so grateful
-            for the trust you’ve placed in us. We sincerely hope you are
-            satisfied with your purchase.
+            We at Amazon truly appreciate your business, and we’re so grateful for the trust you’ve placed in us. We sincerely hope you are satisfied with your purchase.
           </p>
           <button
             // onClick={() => {
